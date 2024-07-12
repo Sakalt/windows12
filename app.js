@@ -135,4 +135,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 背景画像の設定
-document.body.style.backgroundImage = 'url("img/windows10.png")';
+document.body.style.backgroundImage = 'url("img/windows10.jpg")';
