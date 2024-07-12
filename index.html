@@ -10,98 +10,131 @@
     <!-- ローディングGIF -->
     <div id="loading-screen" class="screen">
         <img src="loading.gif" alt="Loading...">
-        <p>Please wait...</p>
+        <p>お待ちください...</p>
     </div>
     
     <!-- ロック画面 -->
     <div id="lock-screen" class="screen">
-        <h1>Welcome to Windows 12</h1>
-        <input type="password" id="password-input" placeholder="Enter password">
-        <button id="unlock-button">Unlock</button>
+        <h1>Windows 12へようこそ</h1>
+        <input type="password" id="password-input" placeholder="パスワードを入力">
+        <button id="unlock-button">解除</button>
     </div>
     
     <!-- デスクトップ -->
     <div id="desktop" class="screen" style="display: none;">
         <div id="taskbar">
-            <img id="start-button" src="vista-icon.png" alt="Start">
+            <img id="start-button" src="vista-icon.png" alt="スタート">
             <!-- タスクバーアイコンの例 -->
-            <img id="task-file-explorer" src="explorer-icon.png" alt="File Explorer">
+            <img id="task-file-explorer" src="explorer-icon.png" alt="ファイルエクスプローラー">
             <!-- 追加アイコンをここに配置 -->
         </div>
         <div id="start-menu" style="display: none;">
-            <button id="start-file-explorer">File Explorer</button>
-            <button id="start-notepad">Notepad</button>
-            <button id="start-calendar">Calendar</button>
-            <button id="start-camera">Camera</button>
-            <button id="start-browser">Browser</button>
-            <button id="start-control-panel">Control Panel</button>
-            <button id="start-command-prompt">Command Prompt</button>
-            <button id="start-setup">Setup</button>
-            <button id="start-paint">Paint</button>
+            <button id="start-file-explorer">ファイルエクスプローラー</button>
+            <button id="start-notepad">メモ帳</button>
+            <button id="start-calendar">カレンダー</button>
+            <button id="start-camera">カメラ</button>
+            <button id="start-browser">ブラウザ</button>
+            <button id="start-control-panel">コントロールパネル</button>
+            <button id="start-command-prompt">コマンドプロンプト</button>
+            <button id="start-setup">セットアップ</button>
+            <button id="start-paint">ペイント</button>
+        </div>
+        <!-- サイドバー -->
+        <div id="sidebar">
+            <div id="time"></div>
+            <div id="date"></div>
         </div>
         <!-- アプリウィンドウの例 -->
         <div id="file-explorer-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">File Explorer</span>
+                <span class="window-title">ファイルエクスプローラー</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">File Explorer Content</div>
+            <div class="window-content">
+                <h2>ファイルエクスプローラー</h2>
+                <p>これはファイルエクスプローラーの内容です。</p>
+            </div>
         </div>
         <div id="notepad-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Notepad</span>
+                <span class="window-title">メモ帳</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Notepad Content</div>
+            <div class="window-content">
+                <h2>メモ帳</h2>
+                <textarea id="notepad-content"></textarea>
+                <button id="save-notepad">保存</button>
+            </div>
         </div>
         <div id="calendar-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Calendar</span>
+                <span class="window-title">カレンダー</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Calendar Content</div>
+            <div class="window-content">
+                <h2>カレンダー</h2>
+                <p id="today-date"></p>
+            </div>
         </div>
         <div id="camera-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Camera</span>
+                <span class="window-title">カメラ</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Camera Content</div>
+            <div class="window-content">
+                <h2>カメラ</h2>
+                <video id="camera-stream" autoplay></video>
+                <button id="capture-button">撮影</button>
+            </div>
         </div>
         <div id="browser-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Browser</span>
+                <span class="window-title">ブラウザ</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Browser Content</div>
+            <div class="window-content">
+                <iframe id="browser-frame" src="about:blank"></iframe>
+            </div>
         </div>
         <div id="control-panel-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Control Panel</span>
+                <span class="window-title">コントロールパネル</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Control Panel Content</div>
+            <div class="window-content">
+                <h2>コントロールパネル</h2>
+                <ul>
+                    <li><a href="#language">言語設定</a></li>
+                </ul>
+            </div>
         </div>
         <div id="command-prompt-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Command Prompt</span>
+                <span class="window-title">コマンドプロンプト</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Command Prompt Content</div>
+            <div class="window-content">
+                <textarea id="command-input"></textarea>
+            </div>
         </div>
         <div id="setup-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Setup</span>
+                <span class="window-title">セットアップ</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Setup Content</div>
+            <div class="window-content">
+                <h2>セットアップ</h2>
+                <p>これはセットアップの内容です。</p>
+            </div>
         </div>
         <div id="paint-window" class="window" style="display: none;">
             <div class="window-header">
-                <span class="window-title">Paint</span>
+                <span class="window-title">ペイント</span>
                 <span class="window-control close">×</span>
             </div>
-            <div class="window-content">Paint Content</div>
+            <div class="window-content">
+                <canvas id="paint-canvas"></canvas>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
