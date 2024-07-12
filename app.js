@@ -203,3 +203,207 @@ document.querySelectorAll('.calculator-button').forEach(button => {
         });
     });
 });
+// ファイルエクスプローラー
+const fileExplorerWindow = document.getElementById('file-explorer-window');
+fileExplorerWindow.style.left = '20px';
+fileExplorerWindow.style.top = '20px';
+
+// メモ帳
+const notepadWindow = document.getElementById('notepad-window');
+notepadWindow.style.left = '50px';
+notepadWindow.style.top = '50px';
+const notepadTextArea = document.getElementById('notepad-text');
+const notepadSaveButton = document.getElementById('notepad-save');
+notepadSaveButton.addEventListener('click', () => {
+    localStorage.setItem('notepad-content', notepadTextArea.value);
+    alert('Note saved successfully!');
+});
+const savedNote = localStorage.getItem('notepad-content');
+if (savedNote) {
+    notepadTextArea.value = savedNote;
+}
+
+// カレンダー
+const calendarWindow = document.getElementById('calendar-window');
+calendarWindow.style.left = '80px';
+calendarWindow.style.top = '80px';
+const currentDateElement = document.getElementById('current-date');
+const currentDate = new Date();
+const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+currentDateElement.textContent = currentDate.toLocaleDateString('en-US', options);
+
+// カメラ
+const cameraWindow = document.getElementById('camera-window');
+cameraWindow.style.left = '110px';
+cameraWindow.style.top = '110px';
+const cameraView = document.getElementById('camera-view');
+const cameraCaptureButton = document.getElementById('camera-capture');
+cameraCaptureButton.addEventListener('click', () => {
+    alert('Photo captured!');
+});
+
+// ブラウザ
+const browserWindow = document.getElementById('browser-window');
+browserWindow.style.left = '140px';
+browserWindow.style.top = '140px';
+// ブラウザの設定などを追加する必要があります
+
+// コントロールパネル
+const controlPanelWindow = document.getElementById('control-panel-window');
+controlPanelWindow.style.left = '170px';
+controlPanelWindow.style.top = '170px';
+// コントロールパネルのリンクなどを追加する必要があります
+
+// コマンドプロンプト
+const commandPromptWindow = document.getElementById('command-prompt-window');
+commandPromptWindow.style.left = '200px';
+commandPromptWindow.style.top = '200px';
+const commandOutput = document.getElementById('command-output');
+const commandInput = document.getElementById('command-input');
+const commandSubmitButton = document.getElementById('command-submit');
+commandSubmitButton.addEventListener('click', () => {
+    const command = commandInput.value.trim();
+    commandOutput.textContent = `Command executed: ${command}`;
+    commandInput.value = '';
+});
+
+// ロック画面
+const lockScreen = document.getElementById('lock-screen');
+lockScreen.style.display = 'block'; // ロック画面を表示する処理を追加する必要があります
+
+// Setup
+const setupWindow = document.getElementById('setup-window');
+setupWindow.style.left = '230px';
+setupWindow.style.top = '230px';
+// Setup の内容を追加する必要があります
+
+// ペイント
+const paintWindow = document.getElementById('paint-window');
+paintWindow.style.left = '260px';
+paintWindow.style.top = '260px';
+// ペイントの描画処理などを追加する必要があります
+
+// 電卓
+const calculatorWindow = document.getElementById('calculator-window');
+calculatorWindow.style.left = '290px';
+calculatorWindow.style.top = '290px';
+const calculatorDisplay = document.getElementById('calculator-display');
+const calculatorButtons = document.querySelectorAll('.calculator-button');
+calculatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculatorDisplay.textContent += button.textContent;
+    });
+});
+
+// タスクバーアイコンとスタートメニューの表示
+const desktop = document.getElementById('desktop');
+const startMenu = document.getElementById('start-menu');
+desktop.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    startMenu.style.display = 'block';
+    startMenu.style.left = `${event.pageX}px`;
+    startMenu.style.top = `${event.pageY}px`;
+});
+desktop.addEventListener('click', () => {
+    startMenu.style.display = 'none';
+});
+
+// ファイルエクスプローラーアイコン
+const fileExplorerIcon = document.createElement('img');
+fileExplorerIcon.src = 'img/file-explorer-icon.png';
+fileExplorerIcon.classList.add('taskbar-icon');
+fileExplorerIcon.addEventListener('click', () => {
+    fileExplorerWindow.style.display = 'block';
+});
+desktop.appendChild(fileExplorerIcon);
+
+// メモ帳アイコン
+const notepadIcon = document.createElement('img');
+notepadIcon.src = 'img/notepad-icon.png';
+notepadIcon.classList.add('taskbar-icon');
+notepadIcon.addEventListener('click', () => {
+    notepadWindow.style.display = 'block';
+});
+desktop.appendChild(notepadIcon);
+
+// カレンダーアイコン
+const calendarIcon = document.createElement('img');
+calendarIcon.src = 'img/calendar-icon.png';
+calendarIcon.classList.add('taskbar-icon');
+calendarIcon.addEventListener('click', () => {
+    calendarWindow.style.display = 'block';
+});
+desktop.appendChild(calendarIcon);
+
+// カメラアイコン
+const cameraIcon = document.createElement('img');
+cameraIcon.src = 'img/camera-icon.png';
+cameraIcon.classList.add('taskbar-icon');
+cameraIcon.addEventListener('click', () => {
+    cameraWindow.style.display = 'block';
+});
+desktop.appendChild(cameraIcon);
+
+// ブラウザアイコン
+const browserIcon = document.createElement('img');
+browserIcon.src = 'img/browser-icon.png';
+browserIcon.classList.add('taskbar-icon');
+browserIcon.addEventListener('click', () => {
+    browserWindow.style.display = 'block';
+});
+desktop.appendChild(browserIcon);
+
+// コントロールパネルアイコン
+const controlPanelIcon = document.createElement('img');
+controlPanelIcon.src = 'img/control-panel-icon.png';
+controlPanelIcon.classList.add('taskbar-icon');
+controlPanelIcon.addEventListener('click', () => {
+    controlPanelWindow.style.display = 'block';
+});
+desktop.appendChild(controlPanelIcon);
+
+// コマンドプロンプトアイコン
+const commandPromptIcon = document.createElement('img');
+commandPromptIcon.src = 'img/command-prompt-icon.png';
+commandPromptIcon.classList.add('taskbar-icon');
+commandPromptIcon.addEventListener('click', () => {
+    commandPromptWindow.style.display = 'block';
+});
+desktop.appendChild(commandPromptIcon);
+
+// セットアップアイコン
+const setupIcon = document.createElement('img');
+setupIcon.src = 'img/setup-icon.png';
+setupIcon.classList.add('taskbar-icon');
+setupIcon.addEventListener('click', () => {
+    setupWindow.style.display = 'block';
+});
+desktop.appendChild(setupIcon);
+
+// ペイントアイコン
+const paintIcon = document.createElement('img');
+paintIcon.src = 'img/paint-icon.png';
+paintIcon.classList.add('taskbar-icon');
+paintIcon.addEventListener('click', () => {
+    paintWindow.style.display = 'block';
+});
+desktop.appendChild(paintIcon);
+
+// 電卓アイコン
+const calculatorIcon = document.createElement('img');
+calculatorIcon.src = 'img/calculator-icon.png';
+calculatorIcon.classList.add('taskbar-icon');
+calculatorIcon.addEventListener('click', () => {
+    calculatorWindow.style.display = 'block';
+});
+desktop.appendChild(calculatorIcon);
+
+// スタートメニューの表示切り替え
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', () => {
+    if (startMenu.style.display === 'block') {
+        startMenu.style.display = 'none';
+    } else {
+        startMenu.style.display = 'block';
+    }
+});
