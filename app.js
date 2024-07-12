@@ -136,3 +136,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 背景画像の設定
 document.body.style.backgroundImage = 'url("img/windows10.jpg")';
+// 電卓の動作
+const calculatorDisplay = document.getElementById('calculator-display');
+let calculatorValue = '';
+
+document.querySelectorAll('.calculator-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const buttonValue = button.textContent.trim();
+
+        if (buttonValue === '=') {
+            try {
+                calculatorValue = eval(calculatorValue);
+                calculatorDisplay.textContent = calculatorValue;
+            } catch (error) {
+                calculatorDisplay.textContent = 'Error';
+                calculatorValue = '';
+            }
+        } else if (buttonValue === 'C') {
+            calculatorValue = '';
+            calculatorDisplay.textContent = '';
+        } else {
+            calculatorValue += buttonValue;
+            calculatorDisplay.textContent = calculatorValue;
+        }
+    });
+});
