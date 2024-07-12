@@ -105,3 +105,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // ここに追加するコードを記述します
+    // タスクバーのアイコン表示
+    const taskbarIcons = document.querySelectorAll('.taskbar-icon');
+    taskbarIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const appId = icon.dataset.appId;
+            const windowId = icon.dataset.windowId;
+            const windowElement = document.getElementById(windowId);
+            if (windowElement.style.display === 'none') {
+                windowElement.style.display = 'block';
+            } else {
+                windowElement.style.display = 'none';
+            }
+        });
+    });
+
+    // スタートメニューのトグル機能
+    const startMenuToggle = document.getElementById('start-menu-toggle');
+    const startMenu = document.getElementById('start-menu');
+    startMenuToggle.addEventListener('click', () => {
+        if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+            startMenu.style.display = 'block';
+        } else {
+            startMenu.style.display = 'none';
+        }
+    });
+});
+
+// 背景画像の設定
+document.body.style.backgroundImage = 'url("img/windows10.png")';
