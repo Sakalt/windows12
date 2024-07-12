@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 12</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ローディングGIF -->
+    <div id="loading-screen" class="screen">
+        <img src="loading.gif" alt="Loading...">
+        <p>Please wait...</p>
+    </div>
+    
+    <!-- ロック画面 -->
+    <div id="lock-screen" class="screen">
+        <h1>Welcome to Windows 12</h1>
+        <input type="password" id="password-input" placeholder="Enter password">
+        <button id="unlock-button">Unlock</button>
+    </div>
+    
+    <!-- デスクトップ -->
+    <div id="desktop" class="screen" style="display: none;">
+        <div id="taskbar">
+            <img id="start-button" src="start-icon.png" alt="Start">
+            <!-- タスクバーアイコンの例 -->
+            <img id="task-file-explorer" src="explorer-icon.png" alt="File Explorer">
+            <!-- 追加アイコンをここに配置 -->
+        </div>
+        <div id="start-menu" style="display: none;">
+            <button id="start-file-explorer">File Explorer</button>
+            <button id="start-notepad">Notepad</button>
+            <button id="start-calendar">Calendar</button>
+            <button id="start-camera">Camera</button>
+            <button id="start-browser">Browser</button>
+            <button id="start-control-panel">Control Panel</button>
+            <button id="start-command-prompt">Command Prompt</button>
+            <button id="start-setup">Setup</button>
+            <button id="start-paint">Paint</button>
+        </div>
+        <!-- アプリウィンドウの例 -->
+        <div id="file-explorer-window" class="window" style="display: none;">
+            <div class="window-header">
+                <span class="window-title">File Explorer</span>
+                <span class="window-control close">×</span>
+            </div>
+            <div class="window-content">File Explorer Content</div>
+        </div>
+        <!-- 追加ウィンドウをここに配置 -->
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
