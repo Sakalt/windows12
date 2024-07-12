@@ -161,3 +161,45 @@ document.querySelectorAll('.calculator-button').forEach(button => {
         }
     });
 });
+// ウィンドウの最小化と最大化
+    document.querySelectorAll('.window-header').forEach(header => {
+        const closeButton = header.querySelector('.close');
+        const minimizeButton = document.createElement('button');
+        minimizeButton.className = 'minimize';
+        minimizeButton.textContent = '━';
+        header.appendChild(minimizeButton);
+
+        const maximizeButton = document.createElement('button');
+        maximizeButton.className = 'maximize';
+        maximizeButton.textContent = '□';
+        header.appendChild(maximizeButton);
+
+        closeButton.addEventListener('click', () => {
+            const windowElement = closeButton.closest('.window');
+            windowElement.style.display = 'none';
+        });
+
+        minimizeButton.addEventListener('click', () => {
+            const windowElement = minimizeButton.closest('.window');
+            windowElement.style.display = 'none';
+
+            // ここに最小化時の処理を追加する場合の例:
+            // 例えばタスクバーに最小化したウィンドウのアイコンを表示するなど
+        });
+
+        maximizeButton.addEventListener('click', () => {
+            const windowElement = maximizeButton.closest('.window');
+            if (windowElement.style.width === '100%' && windowElement.style.height === '100%') {
+                windowElement.style.width = '80%';
+                windowElement.style.height = '80%';
+                windowElement.style.left = '10%';
+                windowElement.style.top = '10%';
+            } else {
+                windowElement.style.width = '100%';
+                windowElement.style.height = '100%';
+                windowElement.style.left = '0';
+                windowElement.style.top = '0';
+            }
+        });
+    });
+});
