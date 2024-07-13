@@ -252,7 +252,39 @@
             </div>
         </div>
     </div>
-
+　<div id="calculator-window" class="window">
+    <div class="window-header">
+        <div class="window-title">電卓</div>
+        <div class="window-buttons">
+            <div class="minimize">-</div>
+            <div class="maximize">+</div>
+            <div class="close">×</div>
+        </div>
+    </div>
+    <div class="window-content calculator-content">
+        <div class="calculator-buttons">
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendOperator('+')">+</button><br>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendOperator('-')">-</button><br>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendOperator('*')">*</button><br>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="clearCalculator()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendOperator('/')">/</button>
+        </div>
+        <div class="calculator-display">
+            <input type="text" id="calculator-display" disabled>
+        </div>
+    </div>
+</div>
     <!-- スクリプト -->
     <script src="app.js"></script>
 </body>
