@@ -13,11 +13,16 @@
         <p>少々お待ちください...</p>
     </div>
 
-    <!-- スタートメニュー -->
-    <div id="start-menu">
+    <!-- タスクバー -->
+    <div id="taskbar">
         <div id="start-button">
             <img src="img/vista_start.png" alt="Start">
         </div>
+        <div id="taskbar-icons"></div>
+    </div>
+
+    <!-- スタートメニュー -->
+    <div id="start-menu">
         <div id="start-menu-content">
             <div class="start-menu-app" id="start-file-explorer">ファイルエクスプローラー</div>
             <div class="start-menu-app" id="start-notepad">メモ帳</div>
@@ -172,7 +177,8 @@
             </span>
         </div>
         <div class="window-content">
-            <p>ペイントのコンテンツ</p>
+            <canvas id="paint-canvas" width="500" height="400"></canvas>
+            <button id="paint-clear">クリア</button>
         </div>
     </div>
 
