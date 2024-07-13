@@ -184,3 +184,29 @@ paintCanvas.onmousemove = (e) => {
 document.getElementById('paint-clear').onclick = () => {
     paintContext.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
 };
+// 既存のウィンドウ関連コード...
+
+// ロック画面のパスワード機能
+const lockScreen = document.getElementById('lock-screen');
+const lockScreenPassword = document.getElementById('lock-screen-password');
+const lockScreenSubmit = document.getElementById('lock-screen-submit');
+const startupSound = document.getElementById('startup-sound');
+
+lockScreenSubmit.onclick = () => {
+    const enteredPassword = lockScreenPassword.value;
+    const savedPassword = localStorage.getItem('password') || '1234';
+    if (enteredPassword === savedPassword) {
+        lockScreen.style.display = 'none';
+        startupSound.play();
+    } else {
+        alert('パスワードが間違っています');
+    }
+};
+
+window.onload = () => {
+    // 既存のコード...
+    
+    // ロック画面の解除
+    lockScreen.style.display = 'block';
+
+    
