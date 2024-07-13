@@ -18,23 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // セットアップ画面の処理
     const setupScreen = document.getElementById('setup-screen');
-    const setupUsername = document.getElementById('setup-username');
-    const setupPassword = document.getElementById('setup-password');
-    const setupSubmit = document.getElementById('setup-submit');
+   document.addEventListener('DOMContentLoaded', () => {
+    const setupScreen = document.getElementById('setup-screen');
 
+    // ローカルストレージからユーザー名とパスワードを取得
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+
+    if (!username || !password) {
+        // ユーザー名とパスワードが保存されていない場合はセットアップ画面を表示
+        setupScreen.style.display = 'block';
+    } else {
+        // ユーザー名とパスワードが保存されている場合はセットアップ画面を非表示
+        setupScreen.style.display = 'none';
+    }
+
+    // セットアップ処理
+    const setupSubmit = document.getElementById('setup-submit');
     setupSubmit.onclick = () => {
-        const username = setupUsername.value;
-        const password = setupPassword.value;
-        if (username && password) {
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+        const usernameInput = document.getElementById('setup-username');
+        const passwordInput = document.getElementById('setup-password');
+        const usernameValue = usernameInput.value;
+        const passwordValue = passwordInput.value;
+
+        if (usernameValue && passwordValue) {
+            // ユーザー名とパスワードを保存
+            localStorage.setItem('username', usernameValue);
+            localStorage.setItem('password', passwordValue);
+
+            // セットアップ画面を非表示にするなどの処理を追加可能
             setupScreen.style.display = 'none';
-            lockScreen.style.display = 'none';
-            startupSound.play();
         } else {
             alert('ユーザー名とパスワードを入力してください');
         }
     };
+});
 
     // 初期表示処理
     if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
