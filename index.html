@@ -12,12 +12,23 @@
         <input type="password" id="lock-screen-password" placeholder="パスワードを入力">
         <button id="lock-screen-submit">ログイン</button>
         <audio id="startup-sound" src="vista.mp3" preload="auto"></audio>
+        <div id="lock-screen-footer">Windows 12 Ultimate</div>
+    </div>
+
+    <!-- セットアップ画面 -->
+    <div id="setup-screen">
+        <h1>セットアップ</h1>
+        <p>ユーザー名とパスワードを設定してください。</p>
+        <input type="text" id="setup-username" placeholder="ユーザー名">
+        <input type="password" id="setup-password" placeholder="パスワード">
+        <textarea id="setup-terms" readonly>利用規約... (Windows 7風に)</textarea>
+        <button id="setup-submit">インストール</button>
     </div>
 
     <!-- タスクバー -->
     <div id="taskbar">
         <div id="start-button">
-            <img src="vista_start.png" alt="Start">
+            <img src="img/vista_start.png" alt="Start">
         </div>
         <div id="taskbar-icons"></div>
     </div>
@@ -35,6 +46,9 @@
             <div class="start-menu-app" id="start-setup">セットアップ</div>
             <div class="start-menu-app" id="start-paint">ペイント</div>
             <div class="start-menu-app" id="start-calculator">電卓</div>
+            <div class="start-menu-app" id="start-photo">フォト</div>
+            <div class="start-menu-app" id="start-timer">タイマー</div>
+            <div class="start-menu-app" id="start-widget">ウィジェット</div>
         </div>
     </div>
 
@@ -42,175 +56,199 @@
     <div id="file-explorer-window" class="window">
         <div class="window-header">
             <span>ファイルエクスプローラー</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <p>ファイルエクスプローラーのコンテンツ</p>
+            <!-- コンテンツ -->
         </div>
     </div>
 
     <div id="notepad-window" class="window">
         <div class="window-header">
             <span>メモ帳</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <textarea id="notepad-text"></textarea>
-            <button id="notepad-save">保存</button>
+            <textarea id="notepad-content"></textarea>
+            <button id="save-notepad">保存</button>
         </div>
     </div>
 
     <div id="calendar-window" class="window">
         <div class="window-header">
             <span>カレンダー</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <p id="current-date"></p>
-            <ul>
-                <li>日</li>
-                <li>月</li>
-                <li>火</li>
-                <li>水</li>
-                <li>木</li>
-                <li>金</li>
-                <li>土</li>
-            </ul>
+            <div id="calendar-date"></div>
         </div>
     </div>
 
     <div id="camera-window" class="window">
         <div class="window-header">
             <span>カメラ</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <video id="camera-view"></video>
-            <button id="camera-capture">撮影</button>
+            <button id="take-photo">撮影</button>
         </div>
     </div>
 
     <div id="browser-window" class="window">
         <div class="window-header">
             <span>ブラウザ</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <iframe src="https://www.google.com" width="100%" height="100%"></iframe>
+            <input type="text" id="browser-url" placeholder="URLを入力">
+            <button id="go-url">移動</button>
+            <button id="back-url">戻る</button>
+            <button id="forward-url">進む</button>
+            <iframe id="browser-content"></iframe>
         </div>
     </div>
 
     <div id="control-panel-window" class="window">
         <div class="window-header">
             <span>コントロールパネル</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <ul>
-                <li><a href="english.html">英語</a></li>
-                <li><a href="deutsch.html">ドイツ語</a></li>
-                <li><a href="tieng_viet.html">ベトナム語</a></li>
-            </ul>
+            <!-- 言語設定など -->
         </div>
     </div>
 
     <div id="command-prompt-window" class="window">
         <div class="window-header">
             <span>コマンドプロンプト</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <div id="command-output"></div>
-            <input type="text" id="command-input">
-            <button id="command-submit">実行</button>
-        </div>
-    </div>
-
-    <div id="setup-window" class="window">
-        <div class="window-header">
-            <span>セットアップ</span>
-            <span class="window-controls">
-                <button class="minimize">_</button>
-                <button class="maximize">□</button>
-                <button class="close">×</button>
-            </span>
-        </div>
-        <div class="window-content">
-            <p>セットアップの内容</p>
+            <textarea id="command-prompt-content"></textarea>
         </div>
     </div>
 
     <div id="paint-window" class="window">
         <div class="window-header">
             <span>ペイント</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <canvas id="paint-canvas" width="500" height="400"></canvas>
-            <button id="paint-clear">クリア</button>
+            <canvas id="paint-canvas"></canvas>
+            <input type="color" id="paint-color" value="#000000">
         </div>
     </div>
 
     <div id="calculator-window" class="window">
         <div class="window-header">
             <span>電卓</span>
-            <span class="window-controls">
+            <div class="window-controls">
                 <button class="minimize">_</button>
                 <button class="maximize">□</button>
                 <button class="close">×</button>
-            </span>
+            </div>
         </div>
         <div class="window-content">
-            <div id="calculator-display"></div>
-            <div class="calculator-buttons">
-                <button class="calculator-button">1</button>
-                <button class="calculator-button">2</button>
-                <button class="calculator-button">3</button>
-                <button class="calculator-button">*</button>
-                <button class="calculator-button">4</button>
-                <button class="calculator-button">5</button>
-                <button class="calculator-button">6</button>
-                <button class="calculator-button">-</button>
-                <button class="calculator-button">7</button>
-                <button class="calculator-button">8</button>
-                <button class="calculator-button">9</button>
-                <button class="calculator-button">+</button>
-                <button class="calculator-button">0</button>
-                <button class="calculator-button">C</button>
-                <button class="calculator-button">=</button>
-                <button class="calculator-button">/</button>
+            <!-- 電卓の機能 -->
+        </div>
+    </div>
+
+    <div id="photo-window" class="window">
+        <div class="window-header">
+            <span>フォト</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <input type="file" id="photo-input">
+            <img id="photo-display" src="#" alt="Your photo">
+        </div>
+    </div>
+
+    <div id="timer-window" class="window">
+        <div class="window-header">
+            <span>タイマー</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <input type="number" id="timer-minutes" placeholder="分">
+            <input type="number" id="timer-seconds" placeholder="秒">
+            <button id="start-timer">スタート</button>
+        </div>
+    </div>
+
+    <div id="widget-window" class="window">
+        <div class="window-header">
+            <span>ウィジェット</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <!-- おしゃれなサイドバー -->
+        </div>
+    </div>
+
+    <div id="calendar-window" class="window">
+        <div class="window-header">
+            <span>カレンダー</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div id="calendar-date"></div>
+            <div class="calendar-days">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
             </div>
         </div>
     </div>
